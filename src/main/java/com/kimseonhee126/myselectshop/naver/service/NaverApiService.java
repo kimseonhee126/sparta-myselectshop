@@ -61,7 +61,7 @@ public class NaverApiService {
 
     public List<ItemDto> fromJSONtoItems(String responseEntity) {
         JSONObject jsonObject = new JSONObject(responseEntity);
-        JSONArray items  = jsonObject.getJSONArray("items");
+        JSONArray items = jsonObject.getJSONArray("items");
         List<ItemDto> itemDtoList = new ArrayList<>();
 
         for (Object item : items) {
