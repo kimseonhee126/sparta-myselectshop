@@ -1,6 +1,7 @@
 package com.kimseonhee126.myselectshop.controller;
 
 import com.kimseonhee126.myselectshop.dto.FolderRequestDto;
+import com.kimseonhee126.myselectshop.dto.FolderResponseDto;
 import com.kimseonhee126.myselectshop.security.UserDetailsImpl;
 import com.kimseonhee126.myselectshop.service.FolderService;
 import lombok.RequiredArgsConstructor;
@@ -31,4 +32,9 @@ public class FolderController {
         return "index :: #fragment";
     }
 
+    // 회원이 등록한 모든 폴더 조회
+    @GetMapping("/folders")
+    public List<FolderResponseDto> getFolders(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        return folderService.getFolders(userDetails.getUser());
+    }
 }
